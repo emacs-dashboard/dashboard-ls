@@ -6,6 +6,14 @@
 # dashboard-current
 > Show files and directories in current directory.
 
+## Usage
+
+```el
+(require 'dashboard-current)
+(setq dashboard-items '((current-directories . 5) 
+                        (current-files . 5)))
+```
+
 ## Contribution
 
 If you would like to contribute to this project, you may either
