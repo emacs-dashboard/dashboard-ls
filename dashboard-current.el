@@ -57,7 +57,7 @@
    (abbreviate-file-name el)))
 
 (defun dashboard-current--insert-file (list-size)
-  "Add the list of LIST-SIZE items from current files.."
+  "Add the list of LIST-SIZE items from current files."
   (dashboard-insert-section
    "Current Files:"
    (f-files default-directory)
