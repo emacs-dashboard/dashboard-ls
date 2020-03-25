@@ -74,6 +74,5 @@ Use this variable when you don't have the `default-directory' up to date.")
    `(lambda (&rest ignore) (find-file-existing ,el))
    (abbreviate-file-name el)))
 
-
 (provide 'dashboard-current)
 ;;; dashboard-current.el ends here
