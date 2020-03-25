@@ -1,10 +1,10 @@
-;;; dashboard-current.el --- Show files and directories in current directory  -*- lexical-binding: t; -*-
+;;; dashboard-current.el --- Display files/directories in current directory on Dashboard  -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Shen, Jen-Chieh
 ;; Created date 2020-03-24 17:49:59
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
-;; Description: Show files and directories in current directory.
+;; Description: Display files/directories in current directory on Dashboard.
 ;; Keyword: directory file show dashboard
 ;; Version: 0.1.0
 ;; Package-Requires: ((emacs "24.3") (dashboard "1.2.5") (f "0.20.0"))
@@ -27,7 +27,7 @@
 
 ;;; Commentary:
 ;;
-;; Show files and directories in current directory.
+;; Display files/directories in current directory on Dashboard.
 ;;
 
 ;;; Code:
