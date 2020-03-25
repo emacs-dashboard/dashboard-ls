@@ -39,11 +39,10 @@
 
 (add-to-list 'dashboard-item-generators '(current-directories . dashboard-current--insert-file))
 (add-to-list 'dashboard-item-generators '(current-files . dashboard-current--insert-dir))
-(add-to-list 'dashboard-items '(current-directories) t)
-(add-to-list 'dashboard-items '(current-files) t)
 
 (defun dashboard-current--insert-dir (list-size)
   "Add the list of LIST-SIZE items from current directory."
+  (message "dd: %s" default-directory)
   (dashboard-insert-section
    "Current Directories:"
    (let ((dir-lst (f-directories default-directory))
@@ -58,6 +57,7 @@
 
 (defun dashboard-current--insert-file (list-size)
   "Add the list of LIST-SIZE items from current files."
+  (message "dd: %s" default-directory)
   (dashboard-insert-section
    "Current Files:"
    (f-files default-directory)
