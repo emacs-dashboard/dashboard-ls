@@ -42,7 +42,6 @@
 
 (defun dashboard-current--insert-dir (list-size)
   "Add the list of LIST-SIZE items from current directory."
-  (message "dd: %s" default-directory)
   (dashboard-insert-section
    "Current Directories:"
    (let ((dir-lst (f-directories default-directory))
@@ -57,7 +56,6 @@
 
 (defun dashboard-current--insert-file (list-size)
   "Add the list of LIST-SIZE items from current files."
-  (message "dd: %s" default-directory)
   (dashboard-insert-section
    "Current Files:"
    (f-files default-directory)
