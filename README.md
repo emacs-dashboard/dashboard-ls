@@ -1,17 +1,17 @@
-[![Build Status](https://travis-ci.com/jcs090218/goto-line-preview.svg?branch=master)](https://travis-ci.com/jcs090218/goto-line-preview)
-[![MELPA](https://melpa.org/packages/dashboard-current-badge.svg)](https://melpa.org/#/dashboard-current)
-[![MELPA Stable](https://stable.melpa.org/packages/dashboard-current-badge.svg)](https://stable.melpa.org/#/dashboard-current)
+[![Build Status](https://travis-ci.com/jcs090218/dashboard-ls.svg?branch=master)](https://travis-ci.com/jcs090218/dashboard-ls)
+[![MELPA](https://melpa.org/packages/dashboard-ls-badge.svg)](https://melpa.org/#/dashboard-ls)
+[![MELPA Stable](https://stable.melpa.org/packages/dashboard-ls-badge.svg)](https://stable.melpa.org/#/dashboard-ls)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-# dashboard-current
+# dashboard-ls
 > Display files/directories in current directory on Dashboard.
 
 ## Usage
 
 ```el
-(require 'dashboard-current)
-(setq dashboard-items '((current-directories . 5) 
-                        (current-files . 5)))
+(require 'dashboard-ls)
+(setq dashboard-items '((ls-directories . 5) 
+                        (ls-files . 5)))
 ```
 
 ## Contribution
