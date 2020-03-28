@@ -1,3 +1,3 @@
 (source melpa)
 
-(package-file "dashboard-current.el")
+(package-file "dashboard-ls.el")
