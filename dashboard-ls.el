@@ -37,8 +37,8 @@
 (require 'dashboard)
 (require 'dashboard-widgets)
 
-(add-to-list 'dashboard-item-generators '(ls-directories . dashboard-ls--insert-file))
-(add-to-list 'dashboard-item-generators '(ls-files . dashboard-ls--insert-dir))
+(add-to-list 'dashboard-item-generators '(ls-directories . dashboard-ls--insert-dir))
+(add-to-list 'dashboard-item-generators '(ls-files . dashboard-ls--insert-file))
 
 (defvar dashboard-ls-path nil
   "Update to date current path.
@@ -54,6 +54,8 @@ Use this variable when you don't have the `default-directory' up to date.")
           (dir-lst (f-directories current-dir))
           (opt-dir-lst '()))
      (dolist (dir dir-lst)
+       (setq dir (s-replace current-dir "./" dir))
+       (setq dir (s-replace "//" "/" dir))
        (push (concat dir "/") opt-dir-lst))
      (reverse opt-dir-lst))
    list-size
@@ -65,10 +67,16 @@ Use this variable when you don't have the `default-directory' up to date.")
   "Add the list of LIST-SIZE items from current files."
   (dashboard-insert-section
    "Current Files:"
-   (let ((current-dir (if dashboard-ls-path
-                          dashboard-ls-path
-                        default-directory)))
-     (f-files current-dir))
+   (let* ((current-dir (if dashboard-ls-path
+                           dashboard-ls-path
+                         default-directory))
+          (file-lst (f-files current-dir))
+          (opt-file-lst '()))
+     (dolist (file file-lst)
+       (setq file (s-replace current-dir "./" file))
+       (setq file (s-replace "//" "/" file))
+       (push file opt-file-lst))
+     (reverse opt-file-lst))
    list-size
    "f"
    `(lambda (&rest ignore) (find-file-existing ,el))
