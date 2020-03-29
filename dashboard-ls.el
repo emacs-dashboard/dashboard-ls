@@ -33,6 +33,7 @@
 ;;; Code:
 
 (require 'f)
+(require 's)
 
 (require 'dashboard)
 (require 'dashboard-widgets)
