@@ -7,7 +7,7 @@
 ;; Description: Display files/directories in current directory on Dashboard.
 ;; Keyword: directory file show dashboard
 ;; Version: 0.1.1
-;; Package-Requires: ((emacs "24.3") (dashboard "1.2.5") (f "0.20.0"))
+;; Package-Requires: ((emacs "24.3") (dashboard "1.2.5") (f "0.20.0") (s "1.12.0"))
 ;; URL: https://github.com/jcs090218/dashboard-ls
 
 ;; This file is NOT part of GNU Emacs.
