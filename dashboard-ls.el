@@ -52,7 +52,7 @@ Use this variable when you don't have the `default-directory' up to date.")
    (let* ((current-dir (if dashboard-ls-path
                            dashboard-ls-path
                          default-directory))
-          (dir-lst (f-directories current-dir))
+          (dir-lst (when (f-dir-p current-dir) (f-directories current-dir)))
           (opt-dir-lst '()))
      (dolist (dir dir-lst)
        (setq dir (s-replace current-dir "./" dir))
@@ -71,7 +71,7 @@ Use this variable when you don't have the `default-directory' up to date.")
    (let* ((current-dir (if dashboard-ls-path
                            dashboard-ls-path
                          default-directory))
-          (file-lst (f-files current-dir))
+          (file-lst (when (f-dir-p current-dir) (f-files current-dir)))
           (opt-file-lst '()))
      (dolist (file file-lst)
        (setq file (s-replace current-dir "./" file))
