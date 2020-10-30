@@ -8,7 +8,7 @@
 ;; Keyword: directory file show dashboard
 ;; Version: 0.1.3
 ;; Package-Requires: ((emacs "24.3") (dashboard "1.2.5") (f "0.20.0") (s "1.12.0"))
-;; URL: https://github.com/jcs090218/dashboard-ls
+;; URL: https://github.com/jcs-elpa/dashboard-ls
 
 ;; This file is NOT part of GNU Emacs.
 
