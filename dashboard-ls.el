@@ -60,7 +60,7 @@ Use this variable when you don't have the `default-directory' up to date.")
        (push (concat dir "/") opt-dir-lst))
      (reverse opt-dir-lst))
    list-size
-   "d"
+   (dashboard-get-shortcut 'ls-directories)
    `(lambda (&rest ignore) (find-file-existing ,el))
    (abbreviate-file-name el)))
 
@@ -79,7 +79,7 @@ Use this variable when you don't have the `default-directory' up to date.")
        (push file opt-file-lst))
      (reverse opt-file-lst))
    list-size
-   "f"
+   (dashboard-get-shortcut 'ls-files)
    `(lambda (&rest ignore) (find-file-existing ,el))
    (abbreviate-file-name el)))
 
