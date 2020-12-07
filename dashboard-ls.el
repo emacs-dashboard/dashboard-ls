@@ -49,14 +49,12 @@ Use this variable when you don't have the `default-directory' up to date.")
   "Add the list of LIST-SIZE items from current directory."
   (dashboard-insert-section
    "Current Directories:"
-   (let* ((current-dir (if dashboard-ls-path
-                           dashboard-ls-path
-                         default-directory))
+   (let* ((current-dir (or dashboard-ls-path default-directory))
           (dir-lst (when (f-dir-p current-dir) (f-directories current-dir)))
           (opt-dir-lst '()))
      (dolist (dir dir-lst)
-       (setq dir (s-replace current-dir "./" dir))
-       (setq dir (s-replace "//" "/" dir))
+       (setq dir (s-replace current-dir "./" dir)
+             dir (s-replace "//" "/" dir))
        (push (concat dir "/") opt-dir-lst))
      (reverse opt-dir-lst))
    list-size
@@ -68,14 +66,12 @@ Use this variable when you don't have the `default-directory' up to date.")
   "Add the list of LIST-SIZE items from current files."
   (dashboard-insert-section
    "Current Files:"
-   (let* ((current-dir (if dashboard-ls-path
-                           dashboard-ls-path
-                         default-directory))
+   (let* ((current-dir (or dashboard-ls-path default-directory))
           (file-lst (when (f-dir-p current-dir) (f-files current-dir)))
           (opt-file-lst '()))
      (dolist (file file-lst)
-       (setq file (s-replace current-dir "./" file))
-       (setq file (s-replace "//" "/" file))
+       (setq file (s-replace current-dir "./" file)
+             file (s-replace "//" "/" file))
        (push file opt-file-lst))
      (reverse opt-file-lst))
    list-size
