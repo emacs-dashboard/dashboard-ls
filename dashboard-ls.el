@@ -1,6 +1,6 @@
 ;;; dashboard-ls.el --- Display files/directories in current directory on Dashboard  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020  Shen, Jen-Chieh
+;; Copyright (C) 2020-2021  Shen, Jen-Chieh
 ;; Created date 2020-03-24 17:49:59
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
