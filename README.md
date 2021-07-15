@@ -1,7 +1,7 @@
-[![Build Status](https://travis-ci.com/emacs-dashboard/dashboard-ls.svg?branch=master)](https://travis-ci.com/emacs-dashboard/dashboard-ls)
+[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![MELPA](https://melpa.org/packages/dashboard-ls-badge.svg)](https://melpa.org/#/dashboard-ls)
 [![MELPA Stable](https://stable.melpa.org/packages/dashboard-ls-badge.svg)](https://stable.melpa.org/#/dashboard-ls)
-[![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![CI](https://github.com/emacs-dashboard/dashboard-ls/actions/workflows/test.yml/badge.svg)](https://github.com/emacs-dashboard/dashboard-ls/actions/workflows/test.yml)
 
 # dashboard-ls
 > Display files/directories in current directory on Dashboard.
@@ -10,7 +10,7 @@
 
 ```el
 (require 'dashboard-ls)
-(setq dashboard-items '((ls-directories . 5) 
+(setq dashboard-items '((ls-directories . 5)
                         (ls-files . 5)))
 ```
 
