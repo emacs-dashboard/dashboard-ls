@@ -35,7 +35,7 @@
 (require 'f)
 (require 's)
 
-(require 'dashboard nil t)
+(require 'dashboard)
 
 (add-to-list 'dashboard-item-generators '(ls-directories . dashboard-ls--insert-dir))
 (add-to-list 'dashboard-item-generators '(ls-files . dashboard-ls--insert-file))
