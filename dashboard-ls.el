@@ -57,7 +57,7 @@ Use this variable when you don't have the `default-directory' up to date.")
 (defun dashboard-ls--insert-dir (list-size)
   "Add the list of LIST-SIZE items from current directory."
   (dashboard-insert-section
-   "Current Directories:"
+   "List Directories:"
    (let* ((current-dir (dashboard-ls--current-path))
           (entries (dashboard-ls--entries current-dir))
           result)
@@ -75,7 +75,7 @@ Use this variable when you don't have the `default-directory' up to date.")
 (defun dashboard-ls--insert-file (list-size)
   "Add the list of LIST-SIZE items from current files."
   (dashboard-insert-section
-   "Current Files:"
+   "List Files:"
    (let* ((current-dir (dashboard-ls--current-path))
           (entries (dashboard-ls--entries current-dir))
           result)
