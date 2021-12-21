@@ -49,14 +49,19 @@ Use this variable when you don't have the `default-directory' up to date.")
   (setq dashboard-ls--record-path (or dashboard-ls-path default-directory))
   dashboard-ls--record-path)
 
+(defun dashboard-ls--entries (path)
+  "Return entries from PATH."
+  (when (file-directory-p path)
+    (directory-files path nil "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)")))
+
 (defun dashboard-ls--insert-dir (list-size)
   "Add the list of LIST-SIZE items from current directory."
   (dashboard-insert-section
    "Current Directories:"
    (let* ((current-dir (dashboard-ls--current-path))
-          (dir-lst (when (file-directory-p current-dir) (directory-files current-dir nil "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)")))
+          (entries (dashboard-ls--entries current-dir))
           result)
-     (dolist (dir dir-lst)
+     (dolist (dir entries)
        (when (file-directory-p (expand-file-name dir current-dir))
          (setq dir (concat "./" dir))
          (push (concat dir "/") result)))
@@ -72,9 +77,9 @@ Use this variable when you don't have the `default-directory' up to date.")
   (dashboard-insert-section
    "Current Files:"
    (let* ((current-dir (dashboard-ls--current-path))
-          (file-lst (when (file-directory-p current-dir) (directory-files current-dir nil "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)")))
+          (entries (dashboard-ls--entries current-dir))
           result)
-     (dolist (file file-lst)
+     (dolist (file entries)
        (unless (file-directory-p (expand-file-name file current-dir))
          (setq file (concat "./" file))
          (push file result)))
