@@ -7,7 +7,7 @@
 ;; Description: Display files/directories in current directory on Dashboard.
 ;; Keyword: directory file show dashboard
 ;; Version: 0.2.2
-;; Package-Requires: ((emacs "24.3") (dashboard "1.2.5") (f "0.20.0") (s "1.12.0"))
+;; Package-Requires: ((emacs "24.3") (dashboard "1.2.5"))
 ;; URL: https://github.com/emacs-dashboard/dashboard-ls
 
 ;; This file is NOT part of GNU Emacs.
@@ -32,13 +32,10 @@
 
 ;;; Code:
 
-(require 'f)
-(require 's)
-
 (require 'dashboard)
 
-(add-to-list 'dashboard-item-generators '(ls-directories . dashboard-ls--insert-dir))
-(add-to-list 'dashboard-item-generators '(ls-files . dashboard-ls--insert-file))
+(push '(ls-directories . dashboard-ls--insert-dir) dashboard-item-generators)
+(push '(ls-files       . dashboard-ls--insert-file) dashboard-item-generators)
 
 (defvar dashboard-ls-path nil
   "Update to date current path.
@@ -57,13 +54,13 @@ Use this variable when you don't have the `default-directory' up to date.")
   (dashboard-insert-section
    "Current Directories:"
    (let* ((current-dir (dashboard-ls--current-path))
-          (dir-lst (when (f-dir-p current-dir) (f-directories current-dir)))
-          (opt-dir-lst '()))
+          (dir-lst (when (file-directory-p current-dir) (directory-files current-dir nil "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)")))
+          result)
      (dolist (dir dir-lst)
-       (setq dir (s-replace current-dir "./" dir)
-             dir (s-replace "//" "/" dir))
-       (push (concat dir "/") opt-dir-lst))
-     (reverse opt-dir-lst))
+       (when (file-directory-p (expand-file-name dir current-dir))
+         (setq dir (concat "./" dir))
+         (push (concat dir "/") result)))
+     (reverse result))
    list-size
    (dashboard-get-shortcut 'ls-directories)
    `(lambda (&rest ignore)
@@ -75,13 +72,13 @@ Use this variable when you don't have the `default-directory' up to date.")
   (dashboard-insert-section
    "Current Files:"
    (let* ((current-dir (dashboard-ls--current-path))
-          (file-lst (when (f-dir-p current-dir) (f-files current-dir)))
-          (opt-file-lst '()))
+          (file-lst (when (file-directory-p current-dir) (directory-files current-dir nil "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)")))
+          result)
      (dolist (file file-lst)
-       (setq file (s-replace current-dir "./" file)
-             file (s-replace "//" "/" file))
-       (push file opt-file-lst))
-     (reverse opt-file-lst))
+       (unless (file-directory-p (expand-file-name file current-dir))
+         (setq file (concat "./" file))
+         (push file result)))
+     (reverse result))
    list-size
    (dashboard-get-shortcut 'ls-files)
    `(lambda (&rest ignore)
