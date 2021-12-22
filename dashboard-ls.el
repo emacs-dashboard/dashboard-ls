@@ -6,7 +6,7 @@
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
 ;; Description: Display files/directories in current directory on Dashboard.
 ;; Keyword: directory file show dashboard
-;; Version: 0.2.2
+;; Version: 0.3.0
 ;; Package-Requires: ((emacs "24.3") (dashboard "1.2.5"))
 ;; URL: https://github.com/emacs-dashboard/dashboard-ls
 
