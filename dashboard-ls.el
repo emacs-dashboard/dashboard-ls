@@ -6,7 +6,7 @@
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
 ;; Description: Display files/directories in current directory on Dashboard.
 ;; Keyword: directory file show dashboard
-;; Version: 0.2.2
+;; Version: 0.3.0
 ;; Package-Requires: ((emacs "24.3") (dashboard "1.2.5"))
 ;; URL: https://github.com/emacs-dashboard/dashboard-ls
 
@@ -63,13 +63,13 @@ Use this variable when you don't have the `default-directory' up to date.")
           result)
      (dolist (dir entries)
        (when (file-directory-p (expand-file-name dir current-dir))
-         (setq dir (concat "./" dir))
+         (setq dir (concat "/" dir))
          (push (concat dir "/") result)))
      (reverse result))
    list-size
    (dashboard-get-shortcut 'ls-directories)
    `(lambda (&rest ignore)
-      (find-file-existing (concat dashboard-ls--record-path ,el)))
+      (find-file-existing (concat dashboard-ls--record-path "/" ,el)))
    (abbreviate-file-name el)))
 
 (defun dashboard-ls--insert-file (list-size)
@@ -81,13 +81,12 @@ Use this variable when you don't have the `default-directory' up to date.")
           result)
      (dolist (file entries)
        (unless (file-directory-p (expand-file-name file current-dir))
-         (setq file (concat "./" file))
          (push file result)))
      (reverse result))
    list-size
    (dashboard-get-shortcut 'ls-files)
    `(lambda (&rest ignore)
-      (find-file-existing (concat dashboard-ls--record-path ,el)))
+      (find-file-existing (expand-file-name ,el dashboard-ls--record-path)))
    (abbreviate-file-name el)))
 
 (provide 'dashboard-ls)
