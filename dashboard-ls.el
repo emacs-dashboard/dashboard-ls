@@ -1,6 +1,6 @@
 ;;; dashboard-ls.el --- Display files/directories in current directory on Dashboard  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2020-2021  Shen, Jen-Chieh
+;; Copyright (C) 2020-2022  Shen, Jen-Chieh
 ;; Created date 2020-03-24 17:49:59
 
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
@@ -67,8 +67,9 @@ Use this variable when you don't have the `default-directory' up to date.")
          (push (concat dir "/") result)))
      (reverse result))
    list-size
+   'ls-directories
    (dashboard-get-shortcut 'ls-directories)
-   `(lambda (&rest ignore)
+   `(lambda (&rest _)
       (find-file-existing (concat dashboard-ls--record-path "/" ,el)))
    (abbreviate-file-name el)))
 
@@ -84,8 +85,9 @@ Use this variable when you don't have the `default-directory' up to date.")
          (push file result)))
      (reverse result))
    list-size
+   'ls-files
    (dashboard-get-shortcut 'ls-files)
-   `(lambda (&rest ignore)
+   `(lambda (&rest _)
       (find-file-existing (expand-file-name ,el dashboard-ls--record-path)))
    (abbreviate-file-name el)))
 
