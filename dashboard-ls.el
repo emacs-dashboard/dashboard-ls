@@ -88,7 +88,7 @@ Use this variable when you don't have the `default-directory' up to date.")
    'ls-files
    (dashboard-get-shortcut 'ls-files)
    `(lambda (&rest _)
-      (find-file-existing (expand-file-name ,el dashboard-ls--record-path)))
+      (find-file-existing (concat dashboard-ls--record-path "/" ,el)))
    (abbreviate-file-name el)))
 
 (provide 'dashboard-ls)
