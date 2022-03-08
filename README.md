@@ -7,7 +7,7 @@
 
 [![CI](https://github.com/emacs-dashboard/dashboard-ls/actions/workflows/test.yml/badge.svg)](https://github.com/emacs-dashboard/dashboard-ls/actions/workflows/test.yml)
 
-## Usage
+## 🔨 Usage
 
 ```el
 (require 'dashboard-ls)
