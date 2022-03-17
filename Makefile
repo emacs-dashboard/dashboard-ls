@@ -20,3 +20,7 @@ compile:
 unix-test:
 	@echo "Testing..."
 	$(EASK) exec ert-runner -L . $(LOAD-TEST-FILES) -t '!no-win' -t '!org'
+
+clean:
+	$(EASK) clean
+	$(EASK) clean-elc
