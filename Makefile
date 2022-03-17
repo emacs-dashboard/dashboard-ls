@@ -7,7 +7,7 @@ TEST-FILES := $(shell ls test/dashboard-ls-*.el)
 
 .PHONY: clean checkdoc lint install compile unix-test
 
-ci: clean compile install
+ci: clean install compile
 
 install:
 	@echo "Installing..."
