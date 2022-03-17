@@ -3,18 +3,18 @@ SHELL := /usr/bin/env bash
 EMACS ?= emacs
 EASK ?= eask
 
-PKG-FILES := watch-cursor.el
-
-TEST-FILES := $(shell ls test/watch-cursor-*.el)
+TEST-FILES := $(shell ls test/dashboard-ls-*.el)
 
 .PHONY: clean checkdoc lint install compile unix-test
 
 ci: clean compile install
 
 install:
+	@echo "Installing..."
 	$(EASK) install
 
 compile:
+	@echo "Compiling..."
 	$(EASK) compile
 
 unix-test:
