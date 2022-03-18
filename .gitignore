@@ -1,9 +1,8 @@
-# ignore these directories.
+# ignore these directories
 /.git
 /recipes
-dashboard-current-pkg.el
 
-# ignore generated files.
+# ignore generated files
 *.elc
 
 /.eask
