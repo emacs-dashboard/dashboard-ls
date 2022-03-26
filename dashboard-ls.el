@@ -54,18 +54,32 @@ Use this variable when you don't have the `default-directory' up to date.")
   (when (file-directory-p path)
     (directory-files path nil "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)")))
 
+(defun dashboard-ls--dirs ()
+  "Return list of current directories."
+  (let* ((current-dir (dashboard-ls--current-path))
+         (entries (dashboard-ls--entries current-dir))
+         result)
+    (dolist (dir entries)
+      (when (file-directory-p (expand-file-name dir current-dir))
+        (setq dir (concat "/" dir))
+        (push (concat dir "/") result)))
+    (reverse result)))
+
+(defun dashboard-ls--files ()
+  "Return list of current files."
+  (let* ((current-dir (dashboard-ls--current-path))
+         (entries (dashboard-ls--entries current-dir))
+         result)
+    (dolist (file entries)
+      (unless (file-directory-p (expand-file-name file current-dir))
+        (push file result)))
+    (reverse result)))
+
 (defun dashboard-ls--insert-dir (list-size)
   "Add the list of LIST-SIZE items from current directory."
   (dashboard-insert-section
    "List Directories:"
-   (let* ((current-dir (dashboard-ls--current-path))
-          (entries (dashboard-ls--entries current-dir))
-          result)
-     (dolist (dir entries)
-       (when (file-directory-p (expand-file-name dir current-dir))
-         (setq dir (concat "/" dir))
-         (push (concat dir "/") result)))
-     (reverse result))
+   (dashboard-ls--dirs)
    list-size
    'ls-directories
    (dashboard-get-shortcut 'ls-directories)
@@ -77,13 +91,7 @@ Use this variable when you don't have the `default-directory' up to date.")
   "Add the list of LIST-SIZE items from current files."
   (dashboard-insert-section
    "List Files:"
-   (let* ((current-dir (dashboard-ls--current-path))
-          (entries (dashboard-ls--entries current-dir))
-          result)
-     (dolist (file entries)
-       (unless (file-directory-p (expand-file-name file current-dir))
-         (push file result)))
-     (reverse result))
+   (dashboard-ls--files)
    list-size
    'ls-files
    (dashboard-get-shortcut 'ls-files)
