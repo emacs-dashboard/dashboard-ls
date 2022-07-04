@@ -7,7 +7,7 @@
 ;; URL: https://github.com/emacs-dashboard/dashboard-ls
 ;; Version: 0.3.0
 ;; Package-Requires: ((emacs "24.3") (dashboard "1.2.5"))
-;; Keywords: directory file show dashboard
+;; Keywords: convenience directory file show
 
 ;; This file is NOT part of GNU Emacs.
 
