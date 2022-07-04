@@ -3,7 +3,7 @@
          "Display files/directories in current directory on Dashboard")
 
 (website-url "https://github.com/emacs-dashboard/dashboard-ls")
-(keywords "directory" "file" "show" "dashboard")
+(keywords "convenience" "directory" "file" "show")
 
 (package-file "dashboard-ls.el")
 
