@@ -6,7 +6,7 @@
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
 ;; URL: https://github.com/emacs-dashboard/dashboard-ls
 ;; Version: 0.3.0
-;; Package-Requires: ((emacs "24.3") (dashboard "1.2.5"))
+;; Package-Requires: ((emacs "26.1") (dashboard "1.2.5"))
 ;; Keywords: convenience directory file show
 
 ;; This file is NOT part of GNU Emacs.
@@ -51,7 +51,7 @@ Use this variable when you don't have the `default-directory' up to date.")
 (defun dashboard-ls--entries (path)
   "Return entries from PATH."
   (when (file-directory-p path)
-    (directory-files path nil "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)")))
+    (directory-files path nil directory-files-no-dot-files-regexp)))
 
 (defun dashboard-ls--dirs ()
   "Return list of current directories."
