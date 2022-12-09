@@ -51,7 +51,7 @@ Use this variable when you don't have the `default-directory' up to date.")
 (defun dashboard-ls--entries (path)
   "Return entries from PATH."
   (when (file-directory-p path)
-    (directory-files path nil "^\\([^.]\\|\\.[^.]\\|\\.\\..\\)")))
+    (directory-files path nil directory-files-no-dot-files-regexp)))
 
 (defun dashboard-ls--dirs ()
   "Return list of current directories."
