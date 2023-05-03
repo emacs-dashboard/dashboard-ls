@@ -1,4 +1,5 @@
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![JCS-ELPA](https://raw.githubusercontent.com/jcs-emacs/badges/master/elpa/v/dashboard-ls.svg)](https://jcs-emacs.github.io/jcs-elpa/#/dashboard-ls)
 [![MELPA](https://melpa.org/packages/dashboard-ls-badge.svg)](https://melpa.org/#/dashboard-ls)
 [![MELPA Stable](https://stable.melpa.org/packages/dashboard-ls-badge.svg)](https://stable.melpa.org/#/dashboard-ls)
 
