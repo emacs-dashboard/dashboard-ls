@@ -6,7 +6,7 @@
 ;; Author: Shen, Jen-Chieh <jcs090218@gmail.com>
 ;; URL: https://github.com/emacs-dashboard/dashboard-ls
 ;; Version: 0.3.0
-;; Package-Requires: ((emacs "26.1") (dashboard "1.2.5"))
+;; Package-Requires: ((emacs "27.1") (dashboard "1.2.5"))
 ;; Keywords: convenience directory file show
 
 ;; This file is NOT part of GNU Emacs.
