@@ -8,10 +8,10 @@ Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how 
 ## 0.4.0 (Unreleased)
 > Released N/A
 
-* Use built-in variable to avoid dot files (#4)
+* Use built-in variable to avoid dot files ([#4](../../pull/4))
 
 ## 0.3.0
 > Released Dec 22, 2021
 
-* Remove s and f to save load time (#2)
-* Fix execution (#3)
+* Remove s and f to save load time ([#2](../../pull/2))
+* Fix execution ([#3](../../pull/3))
